@@ -1,0 +1,26 @@
+.home-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  min-height: 800px;
+}
+
+.home-page-heading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 36px;
+  }
+
+  span {
+    color: var(--bg-blue);
+  }
+}
+
+.home-page-logo-container {
+  display: grid;
+  place-items: center;
+}

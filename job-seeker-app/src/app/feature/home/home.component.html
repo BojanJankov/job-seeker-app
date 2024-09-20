@@ -1,0 +1,22 @@
+<section class="home-page">
+  <div class="home-page-heading-container">
+    <h1>Are you <span>looking</span> for a job<span>?</span></h1>
+    <app-button
+      text="Check alivable jobs"
+      (btnClick)="
+        currentUser() ? onNaviagteClick('jobs') : onNaviagteClick('login')
+      "
+      [style]="{
+        backgroundColor: '#4361ee',
+        width: '220px',
+        fontSize: '18px',
+        height: '55px',
+        color: 'white',
+        borderRadius: '5px',        
+      }"
+    ></app-button>
+  </div>
+  <div class="home-page-logo-container">
+    <img src="/images/job-search.png" alt="website logo" />
+  </div>
+</section>

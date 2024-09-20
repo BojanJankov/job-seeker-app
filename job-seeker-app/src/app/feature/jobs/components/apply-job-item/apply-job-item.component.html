@@ -1,0 +1,42 @@
+<div class="job-item">
+  <div class="job-item-heading-container">
+    <div class="job-item-heading-image-container">
+      <img
+        src="{{ appliedJob().companyLogo }}"
+        alt="company logo"
+        height="100px"
+      />
+    </div>
+    <h2>{{ appliedJob().companyName }}</h2>
+    <p>{{ appliedJob().position }}</p>
+  </div>
+  <div class="job-item-info-container">
+    <p>
+      <i class="fa-regular fa-clock"></i> {{ appliedJob().expires | date }} |
+      {{ appliedJob().workType }}
+    </p>
+    <p>{{ appliedJob().startingSalary | currency : "EUR" }}</p>
+  </div>
+  <div class="cancel-button-container">
+    <app-button
+      text="Cancel"
+      (btnClick)="onCancelClick(appliedJob().id)"
+    ></app-button>
+  </div>
+  <div class="more-details-container" appToogleDetails>
+    <h4>More details ⬇️</h4>
+    <div class="more-details">
+      <p><strong>Location:</strong> {{ appliedJob().location }}</p>
+      <p><strong>Country:</strong> {{ appliedJob().country }}</p>
+      <p><strong>Qualifications:</strong> {{ appliedJob().qualifications }}</p>
+      <p><strong>About:</strong> {{ appliedJob().jobDescription }}</p>
+      <div class="more-details-controls">
+        <app-button
+          text="Company Details"
+          [style]="{width: '150px',}"
+          (btnClick)="onCompanyButtonNavigateClick(appliedJob().id)"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

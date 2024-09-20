@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap");
+@import "./assets/scss/variables";
+@import "./assets/scss/lists";
+@import "./assets/scss/job-item";
+@import "./assets/scss/auth-forms";
+
+html {
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  padding: 50px;
+  min-height: 800px;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: var(--bg-whitesmoke);
+  border-radius: 5px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.14), 0 6px 6px rgba(0, 0, 0, 0.28);
+  color: black;
+  padding: 20px;
+}

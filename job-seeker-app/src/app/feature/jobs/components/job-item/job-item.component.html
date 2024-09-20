@@ -1,0 +1,39 @@
+<div class="job-item">
+  <div class="job-item-heading-container">
+    <div class="job-item-heading-image-container">
+      <img src="{{ job().companyLogo }}" alt="company logo" height="100px" />
+    </div>
+    <h2>{{ job().companyName }}</h2>
+    <p>{{ job().position }}</p>
+  </div>
+  <div class="job-item-info-container">
+    <p>
+      <i class="fa-regular fa-clock"></i> {{ job().expires | date }} |
+      {{ job().workType }}
+    </p>
+    <p>{{ job().startingSalary | currency : "EUR" }}</p>
+  </div>
+  <div class="apply-button-container">
+    <app-button text="Apply" (btnClick)="onApplyClick(job().id)"></app-button>
+  </div>
+  <div class="more-details-container" appToogleDetails>
+    <h4>More details ⬇️</h4>
+    <div class="more-details">
+      <p><strong>Location:</strong> {{ job().location }}</p>
+      <p><strong>Country:</strong> {{ job().country }}</p>
+      <p><strong>Qualifications:</strong> {{ job().qualifications }}</p>
+      <p><strong>About:</strong> {{ job().jobDescription }}</p>
+      <div class="more-details-controls">
+        <app-button
+          text="Company Details"
+          [style]="{width: '150px',}"
+          (btnClick)="onCompanyButtonNavigateClick(job().id)"
+        ></app-button>
+        <app-button
+          text="Edit job"
+          (btnClick)="onEditNavigate(job().id)"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

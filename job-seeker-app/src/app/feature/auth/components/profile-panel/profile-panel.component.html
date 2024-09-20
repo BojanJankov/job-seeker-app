@@ -1,0 +1,92 @@
+<section class="profile-page">
+  <div class="profile-panel">
+    <div class="profile-panel-image-container">
+      <div>
+        <img
+          src="https://t4.ftcdn.net/jpg/02/17/34/67/360_F_217346796_TSg5VcYjsFxZtIDK6Qdctg3yqAapG7Xa.jpg"
+          alt="profile image"
+        />
+      </div>
+      <div class="profile-panel-image-controles-container">
+        <app-button
+          text="Upload"
+          [style]="{ borderRadius: '5px' }"
+        ></app-button>
+        <app-button text="Save" [style]="{ borderRadius: '5px' }"></app-button>
+      </div>
+    </div>
+    <div class="profile-panel-infomations-container">
+      <div class="profile-panel-infomations-nav">
+        <div
+          class="profile-panel-nav-container"
+          (click)="onPersonalInfoClick()"
+          [ngStyle]="{
+            'border-bottom': !isAuthInfoShown() ? '2px solid black' : 'none'
+          }"
+        >
+          <h2>Personal information</h2>
+        </div>
+        <div
+          class="profile-panel-nav-container"
+          (click)="onUserInfoClick()"
+          [ngStyle]="{
+            'border-bottom': isAuthInfoShown() ? '2px solid black' : 'none'
+          }"
+        >
+          <h2>Account information</h2>
+        </div>
+      </div>
+      <div class="profile-panel-informations" *ngIf="!isAuthInfoShown()">
+        <div class="profile-panel-info-row">
+          <strong>Full name:</strong>
+          <div class="info-row-data-div">
+            {{ user().firstName }} {{ user().lastName }}
+          </div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Username:</strong>
+          <div class="info-row-data-div">
+            {{ user().username }}
+          </div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Country:</strong>
+          <div class="info-row-data-div">{{ user().country }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>City:</strong>
+          <div class="info-row-data-div">{{ user().city }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Years of experience:</strong>
+          <div class="info-row-data-div">{{ user().yearsOfExperience }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Work status:</strong>
+          <div class="info-row-data-div">{{ user().workStatus }}</div>
+        </div>
+      </div>
+      <div class="profile-panel-informations" *ngIf="isAuthInfoShown()">
+        <div class="profile-panel-info-row">
+          <strong>Email:</strong>
+          <div class="info-row-data-div">{{ user().email }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Password:</strong>
+          <div class="info-row-data-div">{{ user().password }}</div>
+        </div>
+        <div class="profile-panel-info-row">
+          <strong>Change password:</strong>
+          <div class="info-row-data-div"></div>
+        </div>
+      </div>
+      <div class="profile-panel-controls-container">
+        <app-button
+          text="Logout"
+          (btnClick)="onLogoutClick()"
+          [style]="{ borderRadius: '5px', width: '120px' }"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</section>
